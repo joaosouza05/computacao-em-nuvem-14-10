@@ -1,1 +1,1 @@
-# computa-o-em-nuvem-14-10
+# computacao-em-nuvem-14-10
