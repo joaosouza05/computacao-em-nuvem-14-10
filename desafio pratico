@@ -17,3 +17,15 @@ web-aula5-779c6f9566-fpg7h   1/1     Running   0          27s
 web-aula5-779c6f9566-frnbd   1/1     Running   0          43m
 web-aula5-779c6f9566-gngm9   1/1     Running   0          44m
 web-aula5-779c6f9566-v8wnn   1/1     Running   0          47m
+
+limpeza do laboratorio 
+root@controlplane:~$ kubectl delete service web-service
+service "web-service" deleted from default namespace
+root@controlplane:~$ kubectl delete deployment web-aula5
+deployment.apps "web-aula5" deleted from default namespace
+root@controlplane:~$ kubectl get pods
+No resources found in default namespace.
+root@controlplane:~$ ^[[200~kubectl get services
+kubectl: command not found
+root@controlplane:~$ ~kubectl get services
+~kubectl: command not found
