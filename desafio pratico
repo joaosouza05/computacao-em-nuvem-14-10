@@ -29,3 +29,19 @@ root@controlplane:~$ ^[[200~kubectl get services
 kubectl: command not found
 root@controlplane:~$ ~kubectl get services
 ~kubectl: command not found
+
+fechamento- 4 perguntas 
+1. O que é um Pod?
+É a menor unidade de execução do Kubernetes. Pode conter um ou mais contêineres que compartilham recursos, como rede e armazenamento.
+
+2. Qual é o papel de um Deployment?
+Gerenciar a quantidade de réplicas de Pods, garantindo que o número desejado esteja em execução e permitindo atualizações e substituições automáticas.
+
+3. O que aconteceu quando apagamos um Pod?
+Se o Pod era gerenciado por um Deployment, o Kubernetes criou outro Pod automaticamente para manter o número de réplicas desejado.
+
+4. Por que um Service é útil se Pods podem ser criados e removidos?
+Porque fornece um endereço estável para acessar os Pods, mesmo quando eles são substituídos e seus endereços IP mudam.
+
+
+
