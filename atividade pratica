@@ -100,3 +100,17 @@ NAME                             READY   STATUS    RESTARTS   AGE
 pod/web-aula5-779c6f9566-dzjgx   1/1     Running   0          37s
 pod/web-aula5-779c6f9566-gngm9   1/1     Running   0          37s
 pod/web-aula5-779c6f9566-v8wnn   1/1     Running   0          3m22s
+
+passo 8
+root@controlplane:~$ kubectl get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+web-aula5-779c6f9566-dzjgx   1/1     Running   0          86s
+web-aula5-779c6f9566-gngm9   1/1     Running   0          86s
+web-aula5-779c6f9566-v8wnn   1/1     Running   0          4m11s
+root@controlplane:~$ kubectl delete pod $(kubectl get pods -o jsonpath='{.items[0].metadata.name}')
+pod "web-aula5-779c6f9566-dzjgx" deleted from default namespace
+root@controlplane:~$ kubectl get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+web-aula5-779c6f9566-frnbd   1/1     Running   0          13s
+web-aula5-779c6f9566-gngm9   1/1     Running   0          110s
+web-aula5-779c6f9566-v8wnn   1/1     Running   0          4m35s
