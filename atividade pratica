@@ -114,3 +114,10 @@ NAME                         READY   STATUS    RESTARTS   AGE
 web-aula5-779c6f9566-frnbd   1/1     Running   0          13s
 web-aula5-779c6f9566-gngm9   1/1     Running   0          110s
 web-aula5-779c6f9566-v8wnn   1/1     Running   0          4m35s
+
+passo 9 
+root@controlplane:~$ kubectl expose deployment web-aula5 --port=80 --target-port=80 --name=web-service
+service/web-service exposed
+root@controlplane:~$ kubectl get service web-service
+NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+web-service   ClusterIP   10.103.67.67   <none>        80/TCP    11s
