@@ -87,3 +87,16 @@ NAME                         READY   STATUS    RESTARTS   AGE     IP            
 web-aula5-779c6f9566-dzjgx   1/1     Running   0          12s     192.168.1.161   node01   <none>           <none>
 web-aula5-779c6f9566-gngm9   1/1     Running   0          12s     192.168.1.230   node01   <none>           <none>
 web-aula5-779c6f9566-v8wnn   1/1     Running   0          2m57s   192.168.1.232   node01   <none>           <none>
+
+passo 7 
+root@controlplane:~$ kubectl get deployment,replicaset,pods
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/web-aula5   3/3     3            3           3m22s
+
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/web-aula5-779c6f9566   3         3         3       3m22s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/web-aula5-779c6f9566-dzjgx   1/1     Running   0          37s
+pod/web-aula5-779c6f9566-gngm9   1/1     Running   0          37s
+pod/web-aula5-779c6f9566-v8wnn   1/1     Running   0          3m22s
