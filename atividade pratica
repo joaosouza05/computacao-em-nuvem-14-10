@@ -21,3 +21,60 @@ web-aula5-779c6f9566-v8wnn   1/1     Running   0          74s
 root@controlplane:~$ kubectl get pods -o wide
 NAME                         READY   STATUS    RESTARTS   AGE   IP              NODE     NOMINATED NODE   READINESS GATES
 web-aula5-779c6f9566-v8wnn   1/1     Running   0          88s   192.168.1.232   node01   <none>           <none>
+
+passo 5 
+root@controlplane:~$ kubectl describe pod $(kubectl get pods -o jsonpath='{.items[0].metadata.name}')
+Name:             web-aula5-779c6f9566-v8wnn
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             node01/172.30.2.2
+Start Time:       Wed, 14 Oct 2026 23:29:25 +0000
+Labels:           app=web-aula5
+                  pod-template-hash=779c6f9566
+Annotations:      <none>
+Status:           Running
+IP:               192.168.1.232
+IPs:
+  IP:           192.168.1.232
+Controlled By:  ReplicaSet/web-aula5-779c6f9566
+Containers:
+  nginx:
+    Container ID:   containerd://133fdfabb7374d41e607a8639f51cf26152b8b124499173e36b4502e9d2a7aef
+    Image:          nginx:alpine
+    Image ID:       docker.io/library/nginx@sha256:0e5caf3555a79db2f1624c61fb1e585c4298a26384fea83f3e5108e451c1eb2c
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 14 Oct 2026 23:29:35 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-hbl9l (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-hbl9l:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  2m15s  default-scheduler  Successfully assigned default/web-aula5-779c6f9566-v8wnn to node01
+  Normal  Pulling    2m9s   kubelet            spec.containers{nginx}: Pulling image "nginx:alpine"
+  Normal  Pulled     2m5s   kubelet            spec.containers{nginx}: Successfully pulled image "nginx:alpine" in 3.937s (3.937s including waiting). Image size: 28826677 bytes.
+  Normal  Created    2m5s   kubelet            spec.containers{nginx}: Container created
+  Normal  Started    2m5s   kubelet            spec.containers{nginx}: Container started
