@@ -1,0 +1,19 @@
+gabarito do desafio 
+root@controlplane:~$ kubectl scale deployment web-aula5 --replicas=5
+deployment.apps/web-aula5 scaled
+root@controlplane:~$ kubectl get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+web-aula5-779c6f9566-2zrs2   1/1     Running   0          9s
+web-aula5-779c6f9566-fpg7h   1/1     Running   0          9s
+web-aula5-779c6f9566-frnbd   1/1     Running   0          42m
+web-aula5-779c6f9566-gngm9   1/1     Running   0          44m
+web-aula5-779c6f9566-v8wnn   1/1     Running   0          47m
+root@controlplane:~$ kubectl delete pod $(kubectl get pods -o jsonpath='{.items[0].metadata.name}')
+pod "web-aula5-779c6f9566-2zrs2" deleted from default namespace
+root@controlplane:~$ kubectl get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+web-aula5-779c6f9566-brsvw   1/1     Running   0          10s
+web-aula5-779c6f9566-fpg7h   1/1     Running   0          27s
+web-aula5-779c6f9566-frnbd   1/1     Running   0          43m
+web-aula5-779c6f9566-gngm9   1/1     Running   0          44m
+web-aula5-779c6f9566-v8wnn   1/1     Running   0          47m
